@@ -92,11 +92,11 @@ function(sbd_configure_diag target)
     )
     target_compile_options(${target} PRIVATE
       -cuda
-      "-gpu=${SBD_GPU_ARCH},mem:unified,interceptdeallocations"
+      "-gpu=${SBD_GPU_ARCH},${SBD_GPU_MEM_MODEL},interceptdeallocations"
     )
     target_link_options(${target} PRIVATE
       -cuda
-      "-gpu=${SBD_GPU_ARCH},mem:unified,interceptdeallocations"
+      "-gpu=${SBD_GPU_ARCH},${SBD_GPU_MEM_MODEL},interceptdeallocations"
     )
   elseif(SBD_GPU_BACKEND STREQUAL "omp5")
     target_compile_definitions(${target} PRIVATE SBD_TRADMODE USE_OMP_OFFLOAD)
