@@ -436,6 +436,9 @@ public:
         }
 
 #ifdef SBD_REORDER_INDEX_ARRAY
+        // reordering is applicable for loop collapsing mode only
+        if (store_offset)
+            return;
         //
         // Reorder excitation entries using a block-based permutation
         // derived from KetIndex.
